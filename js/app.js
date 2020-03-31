@@ -13,11 +13,13 @@ $(function(){
 
   Horns.prototype.render = function() {
    let $cloningHorns = $("#container").clone();
-        $cloningHorns.append($("<h2></h2>").text(this.title));
-        $cloningHorns.append($("<img></img>").attr("src", this.image_url));
-        $cloningHorns.append($("<p></p>").text(this.description));
+        $cloningHorns.find("h2").text(this.title);
+        $cloningHorns.find("img").attr("src", this.image_url);
+        $cloningHorns.find("p").text(this.description);
         $cloningHorns.attr("id" , this.keyword )
-        console.log(this.keyword)
+        // console.log(this.keyword)
+        // $cloningHorns.attr("class" , this.keyword )
+        $cloningHorns.addClass(this.keyword)
         $("section").append($cloningHorns);
         
 
@@ -40,17 +42,19 @@ $(function(){
         });
       };
       readJson();
-      
-    $('select').change(function(){
-      var selectItem = $(this).children('option:selected').val();
-      kayW.forEach(function(val){
-        if( selectItem === val ){
-          $("section").hide();
-          $(`.${val}`).show();
-        }
-      }
-        )
+
+
+    $('#selected').on('change' , function(){
+      let $selectedItem = $(this).val()
+      // let $selectedItem = idX.target.value
+      // console.log($selectedItem)
+          $("div").hide();
+          // $("#container").append( $(`.${$selectedItem}`));
+          $(`.${$selectedItem}`).fadeIn(1000);
+          console.log($selectedItem);
+ 
     })
+    
 
      
 

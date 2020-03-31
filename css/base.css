@@ -46,7 +46,7 @@ div{
 }
 
 #container{
-    display: none;
+    /* display: none; */
     width: 0em;
 }
 footer nav{
