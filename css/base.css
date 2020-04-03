@@ -29,6 +29,7 @@ header{
 
 h1{
     font-size: 45px;
+    color: #769087;
 }
 img{
     width: 180px;
@@ -47,11 +48,12 @@ div{
 
 #container{
     display: none;
-    width: 0em;
 }
-footer nav{
-    clear: both;
+div:hover{
+    filter:grayscale(75%)
+
 }
+
 section{
     width: 90%;
     height: 100vh;
@@ -65,10 +67,29 @@ nav{
     margin: auto;
 }
 select{
-    width: 155px;
-    margin: auto;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+        color: #faebd7;
+        background-color: #769087;
+        width: 12%;
+        border-radius: 10px;
+        cursor: pointer;
 }
 option{
     margin: auto;
     height: 100px;
 }
+footer nav{
+    width: auto;
+    color: #769087;
+    
+}
+footer{
+    margin: auto;
+    clear: both;
+    text-align: center;
+}
+
+
