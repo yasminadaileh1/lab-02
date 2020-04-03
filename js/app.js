@@ -17,18 +17,21 @@ $(function(){
         $cloningHorns.find("img").attr("src", this.image_url);
         $cloningHorns.find("p").text(this.description);
         $cloningHorns.attr("id" , this.keyword )
-        // console.log(this.keyword)
-        // $cloningHorns.attr("class" , this.keyword )
         $cloningHorns.addClass(this.keyword)
         $("section").append($cloningHorns);
         
 
     }
     Horns.prototype.selector = function(){
-   let $selector = $("select")
+   let $selector = $("#selected");
    if(!(kayW.includes(this.keyword))){
         kayW.push(this.keyword);
         $selector.append(`<option> ${this.keyword} </option>`);
+// in 31 line we are creating option tags dyinamic if we have 5 option or if we have 50 optin it will be created
+// in this function we stored the keyword in the option without repeated also here, so we can use this to reffered to the data in the select tag any time.
+        // console.log(this)
+ // this console will show us all the objects not only the keyword I think because we are in a prototype function and this will be reffered to the constructor
+ // okay :) !
    }
   }
     const readJson = () => {
@@ -46,12 +49,17 @@ $(function(){
 
     $('#selected').on('change' , function(){
       let $selectedItem = $(this).val()
-      // let $selectedItem = idX.target.value
-      // console.log($selectedItem)
+
+console.log(this)
+// this here will reffered to the stored keywords (<option>) because in the prototype function we stored in the #selector the value of the keyword key in it
+
+console.log($selectedItem)
+// this console will give us the keyword selected 
+
           $("div").hide();
-          // $("#container").append( $(`.${$selectedItem}`));
           $(`.${$selectedItem}`).fadeIn(1000);
-          console.log($selectedItem);
+// the render function will show the selected items reffered to the keyword keyword > object > data 
+         
  
     })
     
